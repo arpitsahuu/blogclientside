@@ -19,9 +19,11 @@ export default async function Home({
 }) {
   // Parsing page number and search query from the URL (query params)
   const page = Number(searchParams.page) || 1;
+  const search = searchParams.search || ''
 
   // Parsing page number and search query from the URL (query params)
   const { posts, totalPages } = await getPosts(page, 5)
+
 
   return (
     <div className="space-y-8">

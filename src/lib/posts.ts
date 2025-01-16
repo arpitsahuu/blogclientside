@@ -8,7 +8,7 @@ import axios from 'axios';
 export const fetchPosts = async (page: number = 1, limit: number = 5) => {
   try {
     // Construct the URL with query parameters for page and limit
-    const url = `${process.env.URL}/api/v1/blogs?page=${page}&limit=${limit}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/blogs?page=${page}&limit=${limit}`;
     
     const response = await axios.get(url); // Fetch posts from the backend
     console.log(response.data.blogs)
@@ -31,7 +31,7 @@ export const getPosts = cache(async (page: number = 1, postsPerPage: number = 5)
 
 export const getPostById = cache(async (id: string) => {
   try {
-    const url = `${process.env.URL}/api/v1/blog/${id}`; // Assuming the backend has a route to fetch a post by ID
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/blog/${id}`; // Assuming the backend has a route to fetch a post by ID
     const response = await axios.get(url);
     return response?.data; // Assuming the backend returns the post directly
   } catch (error) {
@@ -42,7 +42,7 @@ export const getPostById = cache(async (id: string) => {
 export const searchPosts = cache(async (query: string) => {
   try {
     // Send the search query to the server
-    const url = `${process.env.URL}/api/v1/blogs?search=${encodeURIComponent(query)}&limit=5`; // Limit to 5 results
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/blogs?search=${encodeURIComponent(query)}&limit=5`; // Limit to 5 results
     const response = await axios.get(url);
 
     return response?.data?.posts; // Assuming the server returns posts in the `posts` field

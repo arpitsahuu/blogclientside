@@ -62,7 +62,7 @@ export default function SearchBar() {
       </form>
 
       {/* Search results dropdown */}
-      {results.length > 0 && (
+      {results?.length > 0 && (
         <div className="absolute z-10 w-full mt-1 bg-white shadow-lg rounded-md max-h-60 overflow-auto">
           {results.map((post:IPost) => (
             <Link
