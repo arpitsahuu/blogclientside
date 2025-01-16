@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Metadata } from 'next'
 import Story from '@/components/about/Story'
 import Mission from '@/components/about/Mission'
